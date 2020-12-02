@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row row-cols-8  justify-content-center text-center">
+        <div class="col-8 col-md-5">
+            <img class="displayed img-fluid" src = '/assets/images/park.jpg'  alt="park">
+            <h3>{{parkTitle}}</h3>
+            <p>{{parkAddress}}</p>
+            <p>{{parkPhone}}</p>
+            <p>{{parkHours}}</p>
+            <hr/>
+            <p>
+                <span><a class="navbar-brand" href="/parks/edit?id={{this.parkId}}"><i data-feather="edit" color="black"></i></a> </span>
+                <span>
+                    <button type="button" data-toggle="modal" data-target="#deleteModal" class="btn btn-inverse" ><i data-feather="trash" color="black"></i></button>
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Do you want to delete?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="/parks/delete?id={{this.parkId}}" <button type="button" class="btn btn-secondary"> Delete</button> </a>
+            </div>
+        </div>
+    </div>
+</div>
+

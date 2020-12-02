@@ -1,0 +1,104 @@
+<form class="needs-validation" method="post" action="/parks/save" novalidate>
+    <div class="row row-cols-8 container-fluid justify-content-center">
+        <div class="col-8 col-md-5 text-center">
+            <img class="displayed img-fluid" src = '/assets/images/park.jpg'  alt="park">
+            <input type="hidden" name="saveMethod"
+                   value="{{#if isCreate}}create{{else}}update{{/if}}"/>
+
+            <div class="form-group row justify-content-center">
+                <input type="hidden" name="parkId" value="{{ this.id }}" />
+            </div>
+
+            <div class="form-group row justify-content-center mb-0">
+                <div class="col-1 col-md-3"></div>
+                <div class="col-9 col-md-5 text-left font-weight-bold">
+                    <label class="col-form-label" for="title">Title: </label>
+                </div>
+                <div class="col-1 col-md-3"></div>
+                <div class="col-9 col-md-5">
+                    <input class="form-control" id="title" type="text" name="title" minlength="2" required/><br/>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter title of the park.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center mb-0">
+                <div class="col-1 col-md-3"></div>
+                <div class="col-9 col-md-5 text-left font-weight-bold">
+                    <label class="col-form-label" for="address">Address: </label>
+                </div>
+                <div class="col-1 col-md-3"></div>
+                <div class="col-9 col-md-5">
+                    <input class="form-control" id="address" type="text" name="address" required/><br/>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter address.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center mb-0">
+                <div class="col-1 col-md-3"></div>
+                <div class="col-9 col-md-5 text-left font-weight-bold">
+                    <label class="col-form-label" for="phone">Phone: </label>
+                </div>
+                <div class="col-1 col-md-3"></div>
+                <div class="col-9 col-md-5">
+                    <input class="form-control" id="phone" type="text" name="phone" pattern="^\d{3}-\d{3}-\d{4}$" required/><br/>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter valid format(xxx-xxx-xxxx) phone number.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center mb-0">
+                <div class="col-1 col-md-3"></div>
+                <div class="col-9 col-md-5 text-left font-weight-bold">
+                    <label class="col-form-label" for="hours">Hours: </label>
+                </div>
+                <div class="col-1 col-md-3"></div>
+                <div class="col-9 col-md-5">
+                    <input class="form-control" id="hours" type="text" name="hours" required/><br/>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter hours.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="form-group row container-fluid justify-content-center text-center">
+                <input class="p-2 col-3 col-md-1" type = "submit" value="Submit" />
+            </div>
+</form>
+
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false)
+            })
+        }, false)
+    })()
+</script>

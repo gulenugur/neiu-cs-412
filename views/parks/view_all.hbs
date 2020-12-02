@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row row-cols-8 justify-content-center">
+        <div class="col-8 col-md-5 btn-group-vertical" role="group">
+            <img class="displayed img-fluid" src = '/assets/images/park.jpg'  alt="park">
+            {{#each parkList}}
+                <a class="mt-3 btn btn-lg btn-block btn-outline-dark"
+                   href="/parks/view?id={{this.id}}">{{this.title}}</a>
+                <p>
+                    <span><a href="/parks/edit?id={{this.id}}"><i data-feather="edit" color="black"></i></a></span>
+                </p>
+            {{/each}}
+        </div>
+    </div>
+</div>
+

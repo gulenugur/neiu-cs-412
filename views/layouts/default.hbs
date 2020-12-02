@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="icon" href="data:,">
+      <title>{{title}}</title>
+      <meta charset="UTF-8">
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+      <style>
+          .foo {
+              position: fixed;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              background-color: #212529;
+              color: #FFFFFF80;
+              text-align: center;
+          }
+      </style>
+      <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="/assets/stylesheets/style.css" />
+      <link rel="stylesheet" href="/assets/stylesheets/center.css"/>
+  </head>
+  <body>
+    {{> partial}}
+    {{{body}}}
+    <footer class="footer">
+        <div class="container">
+            <span class=" foo text-muted">&copy 2020 by Ugur Gulen </span>
+        </div>
+    </footer>
+  </body>
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/assets/vendor/popper.js/popper.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/assets/vendor/feather-icons/feather.js"></script>
+  <script>
+     feather.replace()
+  </script>
+</html>
+

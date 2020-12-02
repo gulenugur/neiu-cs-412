@@ -1,0 +1,223 @@
+<div class="container-fluid mt-2">
+    <div class="row justify-content-center">
+        <h2>Walker Sign Up</h2>
+    </div>
+</div>
+<div class="container-fluid m-2">
+    {{> user_messages}}
+</div>
+<form class="needs-validation" method="post", action="/walkers/walker-register" novalidate>
+    <div class="container-fluid">
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="firstName">First Name: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="firstName" type="text" name="first" minlength="2" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter your first name.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="lastName">Last Name: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="lastName" type="text" name="last" minlength="2" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter your last name.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="availability">Availability: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="availability" type="text" name="availability" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter your availability.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="city">City: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="city" type="text" name="city" minlength="2" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter your city.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="state">State: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="state" type="text" name="state" minlength="2" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter your state.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="zipCode">Zip Code: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="zipCode" type="number" name="zipCode" min="10000" max="99999"required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter valid zip code.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="phone">Phone: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="phone" type="text" name="phone" pattern="^\d{3}-\d{3}-\d{4}$" minlength="12" maxlength="12" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter valid format(xxx-xxx-xxxx) phone number.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="experience">Experience: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="experience" type="text" name="experience" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter your experience.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="socialSecurityNumber">SSN: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="socialSecurityNumber" type="text" name="socialSecurityNumber" pattern="^\d{3}-\d{2}-\d{4}$" minlength="11" maxlength="11" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter valid format(xxx-xx-xxxx) SSN.
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="password">Password: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="password" type="password" name="password" minlength="6" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter valid password(At least 6 character).
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="email">Email: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="email" type="email" name="email" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter valid email.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center">
+            <input class="p-2 col-3 col-md-1" type="submit" value="Submit" />
+        </div>
+
+    </div>
+</form>
+
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false)
+            })
+        }, false)
+    })()
+</script>

@@ -1,0 +1,68 @@
+<div class="container-fluid mt-2">
+    <div class="row justify-content-center">
+        <h2>Login</h2>
+    </div>
+</div>
+<div class="container-fluid m-2">
+    {{> user_messages}}
+</div>
+<form class="needs-validation" method="post", action="/users/login" novalidate>
+    <div class="container-fluid">
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="email">Email: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="email" type="email" name="email" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter your email.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center mb-0">
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4 text-left font-weight-bold">
+                <label class="col-form-label" for="password">Password: </label>
+            </div>
+            <div class="col-1 col-md-3"></div>
+            <div class="col-9 col-md-4">
+                <input class="form-control" id="password" type="password" name="password" required/><br/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter your password.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center">
+            <input class="p-2 col-3 col-md-1" type="submit" value="Submit" />
+        </div>
+
+    </div>
+</form>
+
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false)
+            })
+        }, false)
+    })()
+</script>
