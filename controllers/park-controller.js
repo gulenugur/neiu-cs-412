@@ -51,17 +51,22 @@ exports.parkController = {
     edit: async (req,res,next) =>{
         if(req.isAuthenticated()) {
             try {
-                let park = await Park.findOne({_id: req.query.id.trim()})
-                res.render('parks/edit_park', {
-                    isCreate: false,
-                    title: 'Edit Park',
-                    parkTitle: park.title,
-                    parkId: req.query.id,
-                    parkAddress: park.address,
-                    parkPhone: park.phone,
-                    parkHours: park.hours,
-                    styles: ['/stylesheets/style.css']
-                })
+                if(req.user.parks.includes(req.query.id.trim())) {
+                    let park = await Park.findOne({_id: req.query.id.trim()})
+                    res.render('parks/edit_park', {
+                        isCreate: false,
+                        title: 'Edit Park',
+                        parkTitle: park.title,
+                        parkId: req.query.id,
+                        parkAddress: park.address,
+                        parkPhone: park.phone,
+                        parkHours: park.hours,
+                        styles: ['/stylesheets/style.css']
+                    })
+                }else{
+                    req.flash('error', 'You cannot edit someones park!')
+                    res.redirect('/parks/viewall')
+                }
             } catch (err) {
                 next(err)
             }
@@ -95,9 +100,10 @@ exports.parkController = {
     viewAll: async (req,res,next) =>{
         if(req.isAuthenticated()) {
             try {
-                let parkIds = req.user.parks
-                let parkPromises = parkIds.map(id => Park.findOne({_id: id}))
-                let parks = await Promise.all(parkPromises)
+                const parks = await Park.find({})
+                //let parkIds = req.user.parks
+                //let parkPromises = parkIds.map(id => Park.findOne({_id: id}))
+                //let parks = await Promise.all(parkPromises)
                 let allParks = parks.map(park => {
                     return {
                         id: park._id,
@@ -120,13 +126,18 @@ exports.parkController = {
 
     delete: async (req,res,next) => {
         try {
-            const parkIndex = req.user.parks.indexOf(req.body.parkId)
-            req.user.parks.splice(parkIndex,1)
-            req.user = await User.findByIdAndUpdate({_id: req.user.id},{parks: req.user.parks}, {new: true})
-            await User.findByIdAndDelete(req.body.parkId)
-            req.flash('success', 'Park deleted successfully')
-            res.redirect('/parks/viewall')
-
+            if(req.user.parks.includes(req.query.id.trim())) {
+                await Park.findByIdAndDelete({_id: req.query.id.trim()})
+                const parkIndex = req.user.parks.indexOf(req.body.parkId)
+                req.user.parks.splice(parkIndex, 1)
+                req.user = await User.findByIdAndUpdate({_id: req.user.id}, {parks: req.user.parks}, {new: true})
+                await User.findByIdAndDelete(req.body.parkId)
+                req.flash('success', 'Park deleted successfully')
+                res.redirect('/parks/viewall')
+            }else{
+                req.flash('error', 'You cannot delete someones park!')
+                res.redirect('/parks/viewall')
+            }
         } catch (err) {
             next(err)
         }

@@ -12,8 +12,8 @@ const ParkSchema = new mongoose.Schema({
         minlength: [5, 'Minimum address length is 5 characters']
     },
     phone: {
-        type: Number,
-        length: [10, 'Phone number must be ten digits']
+        type: String,
+        length: [12, 'Phone number must be twelve digits(with hyphen)']
     },
     hours:{
         type: String,

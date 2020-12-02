@@ -35,7 +35,7 @@ const WalkerSchema = new mongoose.Schema({
     },
 
     phone:{
-        type:Number,
+        type: String,
         required: [true, 'Phone number is required']
     },
 
@@ -45,7 +45,7 @@ const WalkerSchema = new mongoose.Schema({
     },
 
     socialSecurityNumber:{
-        type: Number,
+        type: String,
         required : [true, 'SSN is required'],
         unique: true
     },
