@@ -1,12 +1,16 @@
-<div class="container-fluid">
+<div class="container-fluid m-2">
     <div class="row row-cols-8 justify-content-center text-center">
         <div class="col-8 col-md-5">
-
-                <h3>{{userName}}</h3>
-                <h3>{{breed}}</h3>
-                <h3>{{age}}</h3>
-                <a href="/users/changepassword" class="btn btn-dark" role="button">Update Account</a>
-                <hr/>
+            <div class="card text-white bg-dark mb-3 mx-auto" style="width: 18rem;">
+                <img class="displayed img-fluid" src = '/assets/images/user-profile.png'>
+                <div class="card-body align-middle">
+                    <h5 class="card-title">{{userName}}</h5>
+                    <p class="card-text">Breed: {{breed}} </p>
+                    <p class="card-text">Dog's Age: {{age}} </p>
+                    <a href="/users/changepassword" class="btn btn-secondary">Update Account</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
