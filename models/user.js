@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
 const SchemaTypes = mongoose.SchemaTypes
 const passportLocalMongoose = require('passport-local-mongoose')
 

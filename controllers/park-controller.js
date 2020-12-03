@@ -101,9 +101,6 @@ exports.parkController = {
         if(req.isAuthenticated()) {
             try {
                 const parks = await Park.find({})
-                //let parkIds = req.user.parks
-                //let parkPromises = parkIds.map(id => Park.findOne({_id: id}))
-                //let parks = await Promise.all(parkPromises)
                 let allParks = parks.map(park => {
                     return {
                         id: park._id,

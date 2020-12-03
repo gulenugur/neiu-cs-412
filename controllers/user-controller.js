@@ -1,19 +1,7 @@
 let User = require('../models/user').User
-let mongoose = require('mongoose')
 const {body, validationResult} = require('express-validator')
 const passport = require('passport')
 
-const connectDB = async () =>{
-    try{
-        await mongoose.connect(process.env.DB_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true
-        })
-    } catch (err){
-        console.log(err)
-    }
-}
 exports.userController = {
      create: async (req,res) =>{
         const errors = validationResult(req)
