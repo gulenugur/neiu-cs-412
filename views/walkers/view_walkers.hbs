@@ -1,11 +1,82 @@
-<div class="container-fluid">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #myInput {
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        #myUL {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #myUL li a {
+            border: 1px solid gray;
+            margin-top: -1px;
+            background-color: gray;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block
+        }
+
+        #myUL li a:hover:not(.header) {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid m-2">
     <div class="row row-cols-8 justify-content-center">
-        <div class="col-8 col-md-5 btn-group-vertical" role="group">
+        <div class="col-8 col-md-5" >
             <img class="displayed img-fluid" src = '/assets/images/walker.jpg'  alt="walker">
+
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by location..." title="Type in a name">
+
+            <ul id="myUL">
             {{#each walkerList}}
-                <a class="mt-3 btn btn-lg btn-block btn-outline-dark"
-                   href="/walkers/view_one?id={{this.id}}">{{this.walkerLocation}} || {{this.walkerAvailability}} </a>
-            {{/each}}
+                <li>
+                    <a href="/walkers/view_one?id={{this.id}}"><button type="button" class="list-group-item list-group-item-action list-group-color">{{this.walkerLocation}}</button></a>
+                </li>
+                {{/each}}
+            </ul>
         </div>
     </div>
 </div>
+
+<script>
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
